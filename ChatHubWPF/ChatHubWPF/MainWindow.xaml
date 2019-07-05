@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ChatHubWPF"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="ChatHubWPF.MainWindow"
         mc:Ignorable="d"
-        Title="ChatHub" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="Images/Favicon.png">
+        Title="ChatHub" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="Images/Favicon.png" Loaded="Window_Loaded">
     <Window.Foreground>
         <ImageBrush/>
     </Window.Foreground>
@@ -25,10 +25,10 @@
             <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="744,6,0,0" Source="Images/close-button-png-26.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" RenderTransformOrigin="2.023,-0.566" Cursor="Hand"/>
             <telerik:Label Content="ChatHub" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Margin="64,-4,0,-4" Width="202" FontFamily="Algerian" FontSize="40">
                 <telerik:Label.Foreground>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFABF50B" Offset="0.607"/>
-                        <GradientStop Color="#FFDE0C0C"/>
-                    </LinearGradientBrush>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </RadialGradientBrush>
                 </telerik:Label.Foreground>
             </telerik:Label>
             <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.885,0.81" Source="Images/Favicon.png" Margin="6,6,0,0"/>
@@ -37,12 +37,12 @@
             <telerik:Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="Red" Offset="0.56"/>
+                    <GradientStop Color="Red" Offset="0.51"/>
+                    <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </telerik:Label.Foreground>
         </telerik:Label>
-        <telerik:RadWatermarkTextBox x:Name="TextBox1" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="180" Margin="77,178,0,0" CurrentText="Username" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:RadWatermarkTextBox x:Name="TextBox1" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="180" Margin="77,178,0,0" CurrentText="Username" Foreground="White" FontSize="15" FontWeight="Bold" MouseEnter="TextBox1_MouseEnter" MouseLeave="TextBox1_MouseLeave">
             <telerik:RadWatermarkTextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>
@@ -50,7 +50,7 @@
                 </LinearGradientBrush>
             </telerik:RadWatermarkTextBox.Background>
         </telerik:RadWatermarkTextBox>
-        <telerik:RadPasswordBox x:Name="PasswordBox1" HorizontalAlignment="Left" Height="60" Password="password" TextWrapping="Wrap" Text="RadPasswordBox" VerticalAlignment="Top" Width="180" WatermarkContent="Enter password" Margin="77,242,0,0" RenderTransformOrigin="0.675,0.789" CurrentText="&quot;&quot;" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:RadPasswordBox x:Name="PasswordBox1" HorizontalAlignment="Left" Height="60" Password="password" TextWrapping="Wrap" Text="RadPasswordBox" VerticalAlignment="Top" Width="180" WatermarkContent="Enter password" Margin="77,242,0,0" RenderTransformOrigin="0.675,0.789" CurrentText="&quot;&quot;" Foreground="Black" FontSize="15" FontWeight="Bold" MouseEnter="PasswordBox1_MouseEnter" MouseLeave="PasswordBox1_MouseLeave">
             <telerik:RadPasswordBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>
@@ -58,26 +58,25 @@
                 </LinearGradientBrush>
             </telerik:RadPasswordBox.Background>
         </telerik:RadPasswordBox>
-        <telerik:RadButton Content="Log in" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="180" RenderTransformOrigin="1.571,5.386" Margin="77,322,0,0" FontSize="25" FontFamily="Elephant" Foreground="#FFFFF300" Click="RadButton_Click">
+        <telerik:RadButton Content="Log in" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="180" RenderTransformOrigin="1.571,5.386" Margin="77,322,0,0" FontSize="25" FontFamily="Elephant" Click="RadButton_Click" Foreground="White">
             <telerik:RadButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="#FF454285" Offset="0.603"/>
                     <GradientStop Color="#FFADADAD" Offset="0.845"/>
-                    <GradientStop Color="#FF0B00F3" Offset="0.339"/>
+                    <GradientStop Color="Black" Offset="0.339"/>
                 </LinearGradientBrush>
             </telerik:RadButton.Background>
         </telerik:RadButton>
         <telerik:Label Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,90,0,0" Height="81" Width="277" FontFamily="Jokerman" FontSize="50" FontWeight="Bold">
             <telerik:Label.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="#FF00FF17" Offset="0.549"/>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF009BFF" Offset="0.51"/>
+                    <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </telerik:Label.Foreground>
         </telerik:Label>
-        <telerik:RadWatermarkTextBox x:Name="TextBox2" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,176,0,0" CurrentText="Username" Text="Name" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:RadWatermarkTextBox x:Name="TextBox2" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,176,0,0" CurrentText="Username" Text="Name" Foreground="Blue" FontSize="15" FontWeight="Bold" MouseEnter="TextBox2_MouseEnter" MouseLeave="TextBox2_MouseLeave">
             <telerik:RadWatermarkTextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>
@@ -85,8 +84,8 @@
                 </LinearGradientBrush>
             </telerik:RadWatermarkTextBox.Background>
         </telerik:RadWatermarkTextBox>
-        <telerik:Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="450,176,0,0" Height="43" Width="94" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <telerik:RadWatermarkTextBox x:Name="TextBox3" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,224,0,0" CurrentText="Username" Text="Email" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="418,176,0,0" Height="43" Width="132" FontSize="55" Foreground="White" FontWeight="Bold" FontFamily="Palace Script MT"/>
+        <telerik:RadWatermarkTextBox x:Name="TextBox3" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,224,0,0" CurrentText="Username" Text="Email" Foreground="Blue" FontSize="15" FontWeight="Bold" MouseEnter="TextBox3_MouseEnter" MouseLeave="TextBox3_MouseLeave">
             <telerik:RadWatermarkTextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>
@@ -94,8 +93,8 @@
                 </LinearGradientBrush>
             </telerik:RadWatermarkTextBox.Background>
         </telerik:RadWatermarkTextBox>
-        <telerik:Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="450,224,0,0" Height="43" Width="119" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <telerik:RadWatermarkTextBox x:Name="TextBox4" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,278,0,0" CurrentText="Username" Text="Username" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="418,224,0,0" Height="43" Width="168" FontSize="55" Foreground="White" FontWeight="Bold" FontFamily="Palace Script MT"/>
+        <telerik:RadWatermarkTextBox x:Name="TextBox4" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="574,278,0,0" CurrentText="Username" Text="Username" Foreground="Red" FontSize="15" FontWeight="Bold" MouseEnter="TextBox4_MouseEnter" MouseLeave="TextBox4_MouseLeave">
             <telerik:RadWatermarkTextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>
@@ -103,23 +102,18 @@
                 </LinearGradientBrush>
             </telerik:RadWatermarkTextBox.Background>
         </telerik:RadWatermarkTextBox>
-        <telerik:Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="450,278,0,0" Height="43" Width="119" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <telerik:Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="450,326,0,0" Height="43" Width="119" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <telerik:RadButton Content="Registration" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="304" RenderTransformOrigin="1.571,5.386" Margin="450,392,0,0" FontSize="30" FontFamily="Cooper Black" Click="RadButton_Click_1">
-            <telerik:RadButton.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="Red" Offset="0.193"/>
-                </LinearGradientBrush>
-            </telerik:RadButton.Foreground>
+        <telerik:Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="418,278,0,0" Height="43" Width="168" FontSize="55" Foreground="White" FontWeight="Bold" FontFamily="Palace Script MT"/>
+        <telerik:Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="3.75,3.818" Margin="418,326,0,0" Height="43" Width="168" FontSize="55" Foreground="White" FontWeight="Bold" FontFamily="Palace Script MT"/>
+        <telerik:RadButton Content="Registration" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="304" RenderTransformOrigin="1.571,5.386" Margin="450,392,0,0" FontSize="30" FontFamily="Cooper Black" Click="RadButton_Click_1" Foreground="White">
             <telerik:RadButton.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF454285" Offset="0.397"/>
-                    <GradientStop Color="#FF0B00F3" Offset="0.661"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFADADAD" Offset="0.845"/>
+                    <GradientStop Color="Black" Offset="0.339"/>
                 </LinearGradientBrush>
             </telerik:RadButton.Background>
         </telerik:RadButton>
-        <telerik:RadPasswordBox x:Name="PasswordBox2" HorizontalAlignment="Left" Height="43" Password="password" TextWrapping="Wrap" Text="RadPasswordBox" VerticalAlignment="Top" Width="180" WatermarkContent="Enter password" Margin="574,331,0,0" Foreground="White" FontSize="15" FontWeight="Bold">
+        <telerik:RadPasswordBox x:Name="PasswordBox2" HorizontalAlignment="Left" Height="43" Password="password" TextWrapping="Wrap" Text="RadPasswordBox" VerticalAlignment="Top" Width="180" WatermarkContent="Enter password" Margin="574,331,0,0" Foreground="Red" FontSize="15" FontWeight="Bold" MouseEnter="PasswordBox2_MouseEnter" MouseLeave="PasswordBox2_MouseLeave">
             <telerik:RadPasswordBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.891"/>

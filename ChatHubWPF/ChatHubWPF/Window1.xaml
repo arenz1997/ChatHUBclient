@@ -6,14 +6,18 @@
         xmlns:local="clr-namespace:ChatHubWPF"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:pivot="http://schemas.telerik.com/2008/xaml/presentation/pivot" x:Class="ChatHubWPF.Window1"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Icon="Images/Favicon.png" Loaded="Window_Loaded">
+        Title="Window1" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Icon="Images/Favicon.png" Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="263*"/>
             <ColumnDefinition Width="529*"/>
         </Grid.ColumnDefinitions>
 
-        <telerik:RadGridView x:Name="RadGridView" EnableColumnVirtualization="False" CanUserResizeColumns="False" FontSize="30" EditTriggers="None" Margin="-27,27,0,0">
+        <telerik:RadGridView x:Name="RadGridView" EnableColumnVirtualization="False" CanUserResizeColumns="False" FontSize="30" EditTriggers="None" Margin="-27,27,0,0" Grid.RowSpan="2">
             <telerik:RadGridView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.071"/>
@@ -22,7 +26,7 @@
             </telerik:RadGridView.Background>
         </telerik:RadGridView>
 
-        <Button Content="UpdateNames" HorizontalAlignment="Left" Width="90" Margin="0,0,0,79" Click="Button_Click" Height="20" Grid.Column="1" VerticalAlignment="Bottom"/>
+        <Button Content="UpdateNames" HorizontalAlignment="Left" Width="90" Margin="104,0,0,3" Click="Button_Click" Height="20" VerticalAlignment="Bottom"/>
 
         <Grid x:Name="MinimizeExitGrid" Margin="0" VerticalAlignment="Top" Height="60" Grid.ColumnSpan="2">
 
@@ -44,7 +48,8 @@
             <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.885,0.81" Source="Images/Favicon.png" Margin="6,6,0,0"/>
             <Image x:Name="ButtonMinimize" Height="45" VerticalAlignment="Bottom" Margin="0,0,69,8" Source="Images/minimize-button-png-27.png" RenderTransformOrigin="2.023,-0.566" Cursor="Hand" HorizontalAlignment="Right" MouseLeftButtonDown="ButtonMinimize_MouseLeftButtonDown" Grid.Column="2" Width="45"/>
         </Grid>
-        <ListBox Grid.Column="1" Margin="0,60,0,100"/>
+        <ListBox x:Name="ChatMessages" Grid.Column="1" Margin="0,60,0,0"/>
+        <TextBox x:Name="MessageTextbox" TextWrapping="Wrap" Margin="0,0,0,50" KeyDown="TextBox_KeyDown" Grid.Column="1" Grid.Row="1"/>
 
     </Grid>
 </Window>
